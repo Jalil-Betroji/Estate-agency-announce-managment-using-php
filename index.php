@@ -61,8 +61,8 @@ require 'connect.php';
             </li>
           </ul>
 
-          <div class="hamburger">
-            <i class="bx bx-menu-alt-left"></i>
+          <div class="nav_responsive">
+          <i class="fa-solid fa-bars"></i>
           </div>
         </div>
       </div>

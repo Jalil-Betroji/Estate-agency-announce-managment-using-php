@@ -92,6 +92,13 @@ Navigation
   margin-top: 2rem;
 }
 
+.fa-bars {
+  width: 3rem;
+  height: 3rem;
+  color: var(--white);
+  display: none;
+}
+
 .logo {
   color: white;
 }
@@ -131,6 +138,10 @@ Navigation
     max-width: 35rem;
     z-index: 100;
     transition: all 300ms ease-in-out;
+  }
+
+  .fa-bars {
+    display: block;
   }
 
   .nav-list.open {
