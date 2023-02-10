@@ -69,7 +69,7 @@ Header
 
 .header {
   position: relative;
-  min-height: 100vh;
+  min-height: 60vh;
   overflow-x: hidden;
   z-index: 0;
 }
@@ -163,7 +163,7 @@ Navigation
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 60vh;
 }
 
 .hero img {
@@ -268,16 +268,6 @@ Navigation
   max-width: 70%;
 }
 
-.imglabel{
-  cursor: pointer;
-  border: 1px solid rgb(167, 167, 167);
-  border-radius: 2rem;
-  width: 90%;
-  height: 70%;
-  margin: 4rem 0 0 3rem;
-  text-align: center;
-}
-
 #modal_flex input {
   border: none;
   border-radius: 1rem;
@@ -285,16 +275,7 @@ Navigation
 }
 
 #modal_flex select {
-height: 3rem;}
-
-#modal_flex .imglabel img {
-  width: 10%;
-  height: 11%;
-  margin: 10rem 0 0 1rem;
-}
-
-#modal_flex .imglabel h3 {
-  margin-top: 2rem;
+height: 3rem;
 }
 
 #modal_flex_edit {
@@ -303,24 +284,11 @@ height: 3rem;}
   margin: 0 auto;
 }
 
-#update_Image .imglabel {
-  height: 10%;
-  border: none;
-}
-
-#update_Image .imglabel img {
-  height: 47%;
-  margin: 0;
-}
-
-/* input[type="file"] {
-  display: none;
-} */
-
 .header .content h1 {
   font-size: 7rem;
   color: var(--white);
-  margin-bottom: 4rem;
+  margin: 11rem 0 2rem 0;
+  background-color: rgba(17, 99, 207, 0.459);
 }
 
 .header .search {

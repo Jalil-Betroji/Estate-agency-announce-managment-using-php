@@ -7,8 +7,9 @@ require 'connect.php';
      add announces code to get inputs values and insert them into database
       including image path and also add the image to our folder directory "images"
    ================================================================================= */
+if(isset($_POST['save_announce'])){
 
-if(isset($_FILES['image'])){
+  if(isset($_FILES['image'])){
     $errors= array();
     $file_name = $_FILES['image']['name'];
     $file_size =$_FILES['image']['size'];
@@ -29,16 +30,16 @@ if(isset($_FILES['image'])){
 
    
     $query = "INSERT INTO announcements (Title , 
-Image , 
-Description , 
-Area , 
-Address , 
-Amount ,
-Announcement_Date , 
-Ad_Type	) 
-VALUES ('$title','$file_name','$description','$area',
-'$address','$amount','$announcment_date','$type')";
-$query_run = mysqli_query($conn,$query);
+   Image , 
+   Description , 
+   Area , 
+   Address , 
+   Amount ,
+   Announcement_Date , 
+   Ad_Type	) 
+   VALUES ('$title','$file_name','$description','$area',
+   '$address','$amount','$announcment_date','$type')";
+   $query_run = mysqli_query($conn,$query);
     if($file_size > 50000000){
       $errors[]='File size must be excately 5 MB';
     }
@@ -47,14 +48,15 @@ $query_run = mysqli_query($conn,$query);
       move_uploaded_file($file_tmp,"images/".$file_name);
       echo "Success";
     }
+  }
+  
 }
-
-/* ================================================================================= 
-     Update announce code to get inputs values by id and insert them into database
-     including image path and also add the image to our folder directory "images"
-   ================================================================================ */
-
-
+  /* ================================================================================= 
+  Update announce code to get inputs values by id and insert them into database
+  including image path and also add the image to our folder directory "images"
+  ================================================================================ */
+  
+  
 if(isset($_POST['update_ann'])){
     if(isset($_FILES['edit_Image'])){
 
@@ -77,6 +79,11 @@ if(isset($_POST['update_ann'])){
     $errors= array();
     $image = $_FILES['image'];
 
+    $query = "UPDATE announcements SET Title='$title', Image='$file_name', Description='$description', 
+    Area='$area' , Address='$address', Amount='$amount', 
+    Announcement_Date='$announcment_date', Ad_Type='$type' 
+                WHERE ID='$announce_id'";
+    $query_run = mysqli_query($conn, $query);
    
     
     if(empty($errors)==true){
@@ -84,12 +91,7 @@ if(isset($_POST['update_ann'])){
       
     }
 
-    $query = "UPDATE announcements SET Title='$title', Image='$file_name', Description='$description', 
-    Area='$area' , Address='$address', Amount='$amount', 
-    Announcement_Date='$announcment_date', Ad_Type='$type' 
-                WHERE ID='$announce_id'";
-    $query_run = mysqli_query($conn, $query);
-}
+ }
 
 }
 

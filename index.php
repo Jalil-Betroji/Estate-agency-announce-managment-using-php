@@ -303,7 +303,7 @@ require 'connect.php';
               ></button>
             </div>
             <div class="modal-body">
-              <form id="add_Announce" method="post" enctype="multipart/form-data">
+              <form id="add_new_announce" method="post" enctype="multipart/form-data">
               <div id="modal_flex">
                 <div>
                 Select image to upload:
@@ -569,6 +569,27 @@ require 'connect.php';
                         <!-- =============================================== -->
   
   <script>
+
+
+
+        $(document).on('submit','#add_new_announce',function(){
+          var formData = new FormData(this);
+          formData.append("save_announce",true);
+          $.ajax({
+            type:"POST",
+            url:"code.php",
+            data:formData,
+            processData:false,
+            contentType:false,
+            success: function (response){
+              var res = jQuery.parseJSON(response);
+            }
+          })
+        })
+
+
+
+
        
        /* ========= get the announce info by id and allow editor to edit them and update 
                     them by passing the announce id to the update button of edit modal ======== */
@@ -602,7 +623,7 @@ require 'connect.php';
   // ========= get the values after updating the announce and refrech the the cards div to show them ======
 
   $(document).on('submit', '#update_announce', function (e) {
-      e.preventDefault();
+    
             var formData = new FormData(this);
             formData.append("update_ann", true);
 
